@@ -40,11 +40,12 @@ class A_ExempleSimple {
 
 	@Test
 	void testAddWithSpy() {
-		MathHelper realMathHelper = new MathHelper();
-		MathHelper spyMathHelper = spy(realMathHelper);
 		ToMockHelper mockToMockHelper = mock(ToMockHelper.class);
 
-		CalculatorService calculatorService = new CalculatorService(spyMathHelper,mockToMockHelper);
+		MathHelper realMathHelper = new MathHelper(mockToMockHelper);
+		MathHelper spyMathHelper = spy(realMathHelper);
+
+		CalculatorService calculatorService = new CalculatorService(spyMathHelper);
 
 		int result = calculatorService.add(2, 3);
 		assertEquals(5, result);
@@ -63,7 +64,7 @@ class A_ExempleSimple {
 
 		when(mockMathHelper.add(2, 3)).thenReturn(5);
 
-		CalculatorService calculatorService = new CalculatorService(mockMathHelper,mockToMockHelper);
+		CalculatorService calculatorService = new CalculatorService(mockMathHelper);
 
 		int result = calculatorService.add(2, 3);
 

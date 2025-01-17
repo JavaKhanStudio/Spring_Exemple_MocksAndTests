@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class MathHelper {
 
-    private ToMockHelper toMockHelper;
+    private final ToMockHelper toMockHelper;
 
     public int add(int a, int b) {
         return a + b;

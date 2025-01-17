@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 public class CalculatorService {
 
     private final MathHelper mathHelper;
-    private final ToMockHelper toMockHelper;
 
     public int add(int a, int b) {
         return mathHelper.add(a, b);
@@ -17,9 +16,5 @@ public class CalculatorService {
 
     public int addOnPlus30(int a) {
         return mathHelper.addOnMock30(a) ;
-    }
-
-    public int subtract(int a, int b) {
-        return mathHelper.add(a, b);
     }
 }
